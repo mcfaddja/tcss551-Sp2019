@@ -12,5 +12,11 @@ words = lines.flatMap(lambda l: re.split(r'[^\w]+', l))
 
 pairs = words.map(lambda w: (w, 1))
 counts = pairs.reduceByKey(lambda n1, n2: n1 + n2)
-counts.saveAsTextFile(sys.argv[2])
+
+word_counts = pairs.reduceByKey(lambda n1, n2: n1 + n2)
+
+char_counts = word_counts.flatMap(lambda each: each[0]).filter(lambda char: char.isalpha()).map(lambda char: char).map(lambda c: (c, 1)).reduceByKey(lambda v1, v2: v1 + v2)
+
+
+char_counts.saveAsTextFile(sys.argv[2])
 sc.stop()
