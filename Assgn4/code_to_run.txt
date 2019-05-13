@@ -1,0 +1,2 @@
+export PYSPARK_PYTHON=python3 && Assgn4/spark-2.4.2-bin-hadoop2.7/bin/spark-submit ~/GitHub/tcss551-Sp2019/Assgn4/char_count.py ~/GitHub/tcss551-Sp2019/Assgn4/pg100.txt ~/GitHub/tcss551-Sp2019/Assgn4/mcfaddenOUT.txt
+
