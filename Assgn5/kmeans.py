@@ -1,22 +1,18 @@
 # Jonathan McFadden
-# Assignment 5
 
+import re
+import sys
 from pyspark import SparkConf, SparkContext
-from pyspark.ml.clustering import KMeans
 
 conf = SparkConf()
 sc = SparkContext(conf=conf)
 
-dataset = sc.textFile("data.txt")
-# dataset = spark.read.format
+lines = sc.textFile("data.txt")
+dataset = lines.flatMap(lambda l: re.split(r' ', l))
 
-kmeans = KMeans().setK(2).setSeed(1)
-model = kmeans.fit(dataset)
+print(dataset.collect())
 
-wssse = model.computeCost(dataset)
-print("Within set sum of squared errors = " + str(wssse))
 
-centers = model.clusterCenters()
-print("Cluster Centers: ")
-for center in centers:
-    print(center)
+
+
+sc.stop()
