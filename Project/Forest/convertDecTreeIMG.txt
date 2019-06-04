@@ -1,0 +1,3 @@
+dot -Tpng decTree.dot -o tree.png
+
+dot -Tpng decTree.dot -o decTree.png
