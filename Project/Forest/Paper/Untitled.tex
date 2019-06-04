@@ -78,7 +78,7 @@
 \begin{center} Jonathan McFadden \end{center}
 
 
-\vspace{1.5in}
+\vspace{2.75in}
 
 
 
@@ -98,7 +98,7 @@ The goal of this project is twofold.  First, we seek to create an accurate big-d
 We chose to try a Linear/Logistic regression first because they're provide a simple and low computational cost way to see a relationship between the features and outcomes of the provided data does indeed exist.  This method will be unlikely produce predictions with good accuracy due to its simplicity, however should these methods show a relationship or relationships within the provided data, that would be a positive indicator to proceed to more complicated and compute intensive algorithms.
 
 
-\vspace{0.5in}
+\vspace{1.25in}
 
 \begin{large} \textbf{\underline{METHOD A} - Linear/Logistic Regression} \end{large}
 
@@ -109,9 +109,44 @@ We followed this basic Linear Regression model with two Logistic Regression mode
 While this method did establish that \emph{there is} a relationship between the features and outcomes in the data, it does not have very good accuracy.  More importantly, it does not tell us anything about which features are most important for determining which type of tree will do best in a certain area.  However, now that we know there is a relationship within the data, we can move on to more complicated and computationally intense methods to determine the importance of the various features.
 
 
-\vspace{0.5in}
+\vspace{1.25in}
 
 \begin{large} \textbf{\underline{METHOD B} - Decision Trees} \end{large}
+
+The first detailed method we chose to use was Decision Trees.  We chose to use this method because it is relatively simple\footnote{as far as ML algorithms go}, yet very powerful as it has the ability to give us an idea of which features are most important.  To determine feature importance, we built three different decision trees, with 3, 4, and 5 levels respectively.  These decision tress can be graphically represented as
+
+\end{flushleft}
+
+\begin{center}
+\includegraphics[width=7in]{../decTree1.png}
+\end{center}
+
+\begin{center}
+\includegraphics[width=7in]{../decTree2.png}
+\end{center}
+
+\begin{center}
+\includegraphics[width=7in]{../decTree3.png}
+\end{center}
+\begin{flushleft}
+
+
+From these trees, we can clearly see that \textbf{Elevation} is the most important determining feature, by far.  We can also see that \textbf{Elevation} is flowed by, in no particular order, the features:
+
+\begin{itemize}
+\item \textbf{Horizontal Distance To Fire Points}
+\item \textbf{Horizontal Distance To Hydrology}
+\item \textbf{Hillside Shade 9am}
+\item \textbf{Wildernes Area 1}
+\item \textbf{Soil Type4}
+\end{itemize}
+
+For the last part of applying the Decision Tree algorithm to this data, we constructed a Decision Tree with no limit on its depth to use for making predictions.  This complete Decision Tree model has a mean accuracy of $0.8078$ and an MSE of $1.7571$, beating the Linear/Logistic Regression by a \emph{large} margin.
+
+
+\vspace{1.5in}
+
+\begin{large} \textbf{\underline{METHOD C} - Random Forest} \end{large}
 
 
 
