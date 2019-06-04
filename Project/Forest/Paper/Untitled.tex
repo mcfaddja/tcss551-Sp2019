@@ -148,6 +148,68 @@ For the last part of applying the Decision Tree algorithm to this data, we const
 
 \begin{large} \textbf{\underline{METHOD C} - Random Forest} \end{large}
 
+The last model we applied to this problem was a Random Forest model.  Since the Decision Tree model worked well, the natural extension was a Random Forest.  As an ensemble model, Random Forests can be far more powerful than Decision Trees and can give a fairly definitive (\emph{and quantified}) answer regarding which features are most important.  Running this model with 10,000 trees, we had a mean accuracy of $0.8748$ and an MSE of $1.0044$, beating the previously superior Decision Tree model by almost 50\%.  More importantly, we found that the top 15 features were:
+
+\begin{itemize}
+\item \textbf{Elevation} : 0.2264
+\item \textbf{Horizontal Distance to roadways} : 0.0918
+\item \textbf{Horizontal Distance to fire points} : 0.0728
+\item \textbf{Horizontal Distance to Hydrology} : 0.0631
+\item \textbf{Vertical Distance to Hydrology} : 0.0539
+\item \textbf{Hillshade Shade 9am} : 0.0518
+\item \textbf{Aspect} : 0.0499
+\item \textbf{Hillshade 3pm} : 0.0468
+\item \textbf{Hillshade Noon} : 0.0450
+\item \textbf{Wilderness Area4} : 0.0434
+\item \textbf{Slope} : 0.0366
+\item \textbf{Soil Type10} : 0.0230
+\item \textbf{Soil Type38} : 0.0191
+\item \textbf{Wilderness Area 1} : 0.0187
+\item \textbf{Soil Type3} : 0.0186
+\end{itemize}
+
+This allows to determine the relative importances of features so that we can better understand what features affect the success or failure of different tree species in various areas.  Additionally, should we wish to create an even more powerful predictive model (\emph{i.e. a neural network}) these importances can tell us which features we should include in the network and which we can discard or combine as a way to reduce the computational complexity of training the network.  \newline
+
+By graphing the feature importances sorted from largest to smallest, we see that there are two "cliffs" where feature importances suddenly drop, one following 10 (\emph{Wilderness Area4}) and one following 12 (\emph{Soil Type10}).  To see this better, we graph the Random Forest Feature Importances 
+
+\end{flushleft}
+
+\begin{center}
+\includegraphics[width=5in]{../randForImpt.png}
+\end{center}
+
+\begin{flushleft}
+
+This indicates that we could truncate at the 10 most important features or the 12 most important features.  However, running this through a Singular Value Decomposition as a verification on the Random Forest Feature Importances, we get the graph of the Singular Values
+
+\end{flushleft}
+
+\begin{center}
+\includegraphics[width=5in]{../SVDimport.png}
+\end{center}
+
+\begin{flushleft}
+\emph{This} plot indicates that truncating after the first ten features is best as the second "cliff" following 12, appears to be an artifact from the approximate nature of the Random Forest algorithm, although we only know this because the dataset if small enough to reasonable compute the singular values.  This plot of the singular values also indicates that we could also truncate after the fifth or sixth most important features, but, again, this is only apparent because we \emph{can} compute a SVD for this data.
+
+
+\vspace{1.5in}
+
+\begin{large} \textbf{\underline{Results}} \end{large}
+
+Numerical results are contained within the explanation for each algorithm, however we can summarize them by stating that
+
+\begin{quote}
+Linear/Logistic Regressions provided relatively poor predictions and no information on feature importances, but did indicate the presence of a relationship within the data.  Decision Trees far outperformed Linear/Logistic Regressions.  Additionally, Decision Trees also told us that elevation was the most important feature, but could not quantify this.  Random Forests not only improved on the predictions of Decision Trees by 50\%.  Moreover, the Random Forest also quantified feature importances with good accuracy compared to a Singular Value Decomposition, but with much less computation cost than a SVD.
+\end{quote}
+
+Based on this, running an entropic method like Decision Trees or an ensemble method like a Random Forest are  powerful and relatively simple ways to analyze large datasets.
+
+
+
+
+
+
+
 
 
 
