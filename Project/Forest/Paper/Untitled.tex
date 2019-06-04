@@ -102,11 +102,16 @@ We chose to try a Linear/Logistic regression first because they're provide a sim
 
 \begin{large} \textbf{\underline{METHOD A} - Linear/Logistic Regression} \end{large}
 
-As described above, the initial method we tried were Linear/Logistic Regressions.  We tried three variations on this method.  First, we ran a simple linear regression.  This gave a poor result, but \emph{did} indicate that there was a relation between the features and outcomes in the data.  This linear model gave an $R^2$ value of $0.4214$ on the test data and $0.4006$ on the training data.  This is odd as, one would expect this value to be higher for the training data than the test data.  This trend also continued when comparing via MSE\footnote{mean squared error}, as the training data had an MSE of $2.3952$ while the test data had an MSE of $2.3257$.  
+As described above, the initial method we tried were Linear/Logistic Regressions.  We tried three variations on this method.  First, we ran a simple linear regression.  This gave a poor result, but \emph{did} indicate that there was a relation between the features and outcomes in the data.  This linear model gave an $R^2$ value of $0.4214$ on the test data and $0.4006$ on the training data.  This is odd as, one would expect this value to be higher for the training data than the test data.  This trend also continued when comparing via MSE\footnote{mean squared error}, as the training data had an MSE of $2.3952$ while the test data had an MSE of $2.3257$.  \newline
 
-We followed this basic Linear Regression model with two Logistic Regression models; one based on fitting a binary problem for each class and the other based on a multinomial fitting.  
+We followed this basic Linear Regression model with two Logistic Regression models; one based on fitting a binary problem for each class (\emph{OVR}) and the other based on a multinomial fitting (\emph{MULTNOM}).  The \emph{OVR} Logistic Regression had a mean error of $0.6711$ and an MSE of $2.8735$ on the test data.  The \emph{MULTNOM} Logistic Regression did slightly better on mean error with $0.6653$ and slightly worse on the MSE with $3.2866$ on the test data.  Interestingly, the \emph{OVR} Logistic Regression had a better MSE on the test data than on the training data ($2.9991$) while the \emph{MULTNOM} Logistic Regression had a better mean error on the test data than the training data ($0.6721$). \newline
+
+While this method did establish that \emph{there is} a relationship between the features and outcomes in the data, it does not have very good accuracy.  More importantly, it does not tell us anything about which features are most important for determining which type of tree will do best in a certain area.  However, now that we know there is a relationship within the data, we can move on to more complicated and computationally intense methods to determine the importance of the various features.
 
 
+\vspace{0.5in}
+
+\begin{large} \textbf{\underline{METHOD B} - Decision Trees} \end{large}
 
 
 
