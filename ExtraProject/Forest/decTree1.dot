@@ -1,0 +1,32 @@
+digraph Tree {
+node [shape=box, style="filled", color="black"] ;
+0 [label="Elevation <= 2678.5\ngini = 0.857\nsamples = 12852\nvalue = [1847, 1828, 1835, 1841, 1839, 1841, 1821]\nclass = 1", fillcolor="#e5813900"] ;
+1 [label="Elevation <= 2369.5\ngini = 0.708\nsamples = 5627\nvalue = [11, 204, 1716, 1841, 171, 1684, 0]\nclass = 4", fillcolor="#39e5e208"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="Hillshade_9am <= 195.5\ngini = 0.594\nsamples = 3135\nvalue = [0, 5, 799, 1728, 0, 603, 0]\nclass = 4", fillcolor="#39e5e265"] ;
+1 -> 2 ;
+3 [label="gini = 0.632\nsamples = 1067\nvalue = [0, 4, 477, 195, 0, 391, 0]\nclass = 3", fillcolor="#39e54d20"] ;
+2 -> 3 ;
+4 [label="gini = 0.416\nsamples = 2068\nvalue = [0, 1, 322, 1533, 0, 212, 0]\nclass = 4", fillcolor="#39e5e2b1"] ;
+2 -> 4 ;
+5 [label="Wilderness_Area1 <= 0.5\ngini = 0.663\nsamples = 2492\nvalue = [11, 199, 917, 113, 171, 1081, 0]\nclass = 6", fillcolor="#b139e51b"] ;
+1 -> 5 ;
+6 [label="gini = 0.617\nsamples = 2307\nvalue = [9, 81, 917, 113, 106, 1081, 0]\nclass = 6", fillcolor="#b139e51e"] ;
+5 -> 6 ;
+7 [label="gini = 0.47\nsamples = 185\nvalue = [2, 118, 0, 0, 65, 0, 0]\nclass = 2", fillcolor="#b7e53971"] ;
+5 -> 7 ;
+8 [label="Elevation <= 3232.5\ngini = 0.767\nsamples = 7225\nvalue = [1836, 1624, 119, 0, 1668, 157, 1821]\nclass = 1", fillcolor="#e5813901"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="Elevation <= 2941.5\ngini = 0.715\nsamples = 5000\nvalue = [1378, 1544, 119, 0, 1668, 157, 134]\nclass = 5", fillcolor="#3956e509"] ;
+8 -> 9 ;
+10 [label="gini = 0.598\nsamples = 2838\nvalue = [195, 753, 119, 0, 1610, 157, 4]\nclass = 5", fillcolor="#3956e569"] ;
+9 -> 10 ;
+11 [label="gini = 0.562\nsamples = 2162\nvalue = [1183, 791, 0, 0, 58, 0, 130]\nclass = 1", fillcolor="#e5813949"] ;
+9 -> 11 ;
+12 [label="Elevation <= 3313.5\ngini = 0.381\nsamples = 2225\nvalue = [458, 80, 0, 0, 0, 0, 1687]\nclass = 7", fillcolor="#e53986b1"] ;
+8 -> 12 ;
+13 [label="gini = 0.565\nsamples = 773\nvalue = [288, 70, 0, 0, 0, 0, 415]\nclass = 7", fillcolor="#e5398643"] ;
+12 -> 13 ;
+14 [label="gini = 0.219\nsamples = 1452\nvalue = [170, 10, 0, 0, 0, 0, 1272]\nclass = 7", fillcolor="#e53986db"] ;
+12 -> 14 ;
+}
