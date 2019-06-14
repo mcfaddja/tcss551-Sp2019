@@ -1,3 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 Project/Forest/test.csv filter=lfs diff=lfs merge=lfs -text
+ExtraProject/Extra-Forest/test.csv filter=lfs diff=lfs merge=lfs -text
