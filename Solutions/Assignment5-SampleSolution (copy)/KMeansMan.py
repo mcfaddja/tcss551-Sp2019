@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import linalg
 
-MAX_ITER = 25
+MAX_ITER = 125
 
 def closest(p, centroids):
   return min([(i, linalg.norm(p - c, norm)) for i, c in enumerate(centroids)], key=operator.itemgetter(1))[0]
@@ -55,7 +55,7 @@ ax.plot(x, cost2, label='c2: kmeans++')
 ax.legend()
 plt.xlabel('Iterations')
 plt.ylabel('Cost')
-plt.title('Manhattan Case')
+plt.title('Manhattan Case\nn=' + str(norm))
 plt.grid(True)
 plt.show()
 

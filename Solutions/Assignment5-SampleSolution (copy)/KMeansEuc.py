@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import linalg
 
-MAX_ITER = 25
+MAX_ITER = 125
 
 def closest(p, centroids):
   return min([(i, linalg.norm(p - c)) for i, c in enumerate(centroids)], key=operator.itemgetter(1))[0]
